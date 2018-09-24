@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    # depends_on:
+    #   - database
+    # links:
+    #   - database
+    # networks:
+    #   - test-network
+  
+  database:
+    image: "mongo"
+    volumes:
+      - /opt/mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    # networks:
+    #   - test-network
+
+
+# networks:
+#   test-network:
+#     external:
+#       name: test-network
